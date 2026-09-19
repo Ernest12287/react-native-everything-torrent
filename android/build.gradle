@@ -9,7 +9,6 @@ buildscript {
     if (rootProject.ext.has(prop)) {
       return rootProject.ext.get(prop)
     }
-
     return EverythingTorrent[prop]
   }
 
@@ -20,11 +19,9 @@ buildscript {
 
   dependencies {
     classpath "com.android.tools.build:gradle:8.7.2"
-    // noinspection DifferentKotlinGradleVersion
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${getExtOrDefault('kotlinVersion')}"
   }
 }
-
 
 apply plugin: "com.android.library"
 
@@ -32,12 +29,10 @@ if (project.extensions.findByName("kotlin") == null) {
   apply plugin: "kotlin-android"
 }
 
-
 apply plugin: "com.facebook.react"
 
 android {
   namespace "com.everythingtorrent"
-
   compileSdkVersion getExtOrDefault("compileSdkVersion")
 
   defaultConfig {
@@ -48,8 +43,19 @@ android {
     sourceCompatibility JavaVersion.VERSION_17
     targetCompatibility JavaVersion.VERSION_17
   }
+
+  packagingOptions {
+    pickFirst 'lib/arm64-v8a/libjlibtorrent.so'
+    pickFirst 'lib/x86_64/libjlibtorrent.so'
+  }
+}
+
+repositories {
+  google()
+  mavenCentral()
 }
 
 dependencies {
   implementation "com.facebook.react:react-android"
+  implementation "org.libtorrent4j:libtorrent4j-android-arm64:2.1.0-30"
 }
