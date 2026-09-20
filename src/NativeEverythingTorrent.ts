@@ -23,6 +23,9 @@ export interface Spec extends TurboModule {
   resumeTorrent(torrentId: string): void;
   removeTorrent(torrentId: string): void;
 
+  // Streaming — returns stream URL
+  startStream(torrentId: string, fileIndex: number): Promise<string>;
+
   // Get download save path
   getDownloadPath(): Promise<string>;
 

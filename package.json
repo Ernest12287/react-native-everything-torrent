@@ -1,7 +1,7 @@
 {
   "name": "react-native-everything-torrent",
   "version": "0.1.0",
-  "description": "everything torrent download and streaming",
+  "description": "Full-featured BitTorrent client for React Native powered by libtorrent4j. Android only.",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
   "exports": {
@@ -42,11 +42,7 @@
     "web": "vite",
     "build:web": "vite build"
   },
-  "keywords": [
-    "react-native",
-    "ios",
-    "android"
-  ],
+  "keywords": ["react-native", "android", "torrent", "libtorrent", "bittorent", "android-only"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ernest12287/react-native-everything-torrent.git"
